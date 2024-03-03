@@ -9,7 +9,7 @@ const navigate=useNavigate();
     const fetchProfileData = async () => {
       try {
         const email = localStorage.getItem('email');
-        const response = await fetch(`http://localhost:5000/api/profile?email=${email}`);
+        const response = await fetch(`https://medidhan.onrender.com/api/profile?email=${email}`);
         if (!response.ok) {
           throw new Error('Failed to fetch profile data');
         }

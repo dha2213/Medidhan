@@ -39,7 +39,7 @@ const UpdateProfile = () => {
  
     try {
       const response = await fetch(
-        "http://localhost:5000/api/profile/update-profile",
+        "https://medidhan.onrender.com/api/profile/update-profile",
         {
           method: "POST",
           headers: {

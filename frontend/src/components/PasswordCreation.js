@@ -17,7 +17,7 @@ function PasswordCreation() {
     try {
         const email = localStorage.getItem('email');
   
-        const response = await fetch('http://localhost:5000/api/auth/create-password', {
+        const response = await fetch('https://medidhan.onrender.com/api/auth/create-password', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

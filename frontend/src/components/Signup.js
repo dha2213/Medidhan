@@ -16,7 +16,7 @@ function Signup() {
     }
 
   try{
-    const response = await fetch('http://localhost:5000/api/auth/send-otp', {
+    const response = await fetch('https://medidhan.onrender.com/api/auth/send-otp', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
