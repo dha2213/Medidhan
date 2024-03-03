@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require("multer");
 const path = require('path');
-const { User } = require('../models/user');
+const { User } = require('../models/User');
 const { log } = require('console');
 
 // Set up multer for file uploads
