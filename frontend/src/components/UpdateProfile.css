@@ -1,0 +1,24 @@
+/* Profile picture styles */
+.profilePic {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Profile container styles */
+.profileContainer {
+  background: #b10b0b;
+  width: 10%;
+  display: flex;
+  margin: 60px;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+  .profileContainer {
+    flex-direction: column-reverse;
+  }
+}
