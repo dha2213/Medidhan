@@ -2,15 +2,18 @@ const express = require('express');
 const router = express.Router();
 const { User } = require('../models/User');
 const { sendOTP } = require('../utils/otp');
-
+const bcrypt = require('bcrypt');
 // Login route
+
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
     const user = await User.findOne({ email: email });
     if (user) {
-      if (user.password === password) {
+      // Compare hashed passwords
+      const isPasswordMatch = await bcrypt.compare(password, user.password);
+      if (isPasswordMatch) {
         res.status(200).json({ message: 'Login successful' });
       } else {
         res.status(401).json({ error: 'Incorrect password' });
@@ -81,7 +84,10 @@ router.post('/verify-otp', async (req, res) => {
 router.post('/create-password', async (req, res) => {
   const { email, password } = req.body;
   try {
-    const user = await User.findOneAndUpdate({ email: email }, { password: password });
+    // Encrypt password
+    const hashedPassword = await bcrypt.hash(password, 10); // 10 is the saltRounds
+
+    const user = await User.findOneAndUpdate({ email: email }, { password: hashedPassword });
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
@@ -91,6 +97,5 @@ router.post('/create-password', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
 
 module.exports = router;

@@ -27,12 +27,13 @@ function Home() {
   return (
     <div>
       {/* Profile section */}
-      <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', padding: '10px' }}>
+      <h1 style={{ textAlign: 'center'}}>Welcome to the Homepage</h1>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px' }}>
          
           <div>
            
-            <button onClick={handleLogout} style={{ border: '2px solid black', backgroundColor: 'lightgray', padding: '5px 10px', cursor: 'pointer' }}>Logout</button>
-            <Link to="/profile" style={{ textDecoration: 'none' }}><button style={{ border: '2px solid black', backgroundColor: 'lightgray', padding: '5px 10px', cursor: 'pointer' }}>Profile</button></Link>
+            {/* <button onClick={handleLogout} style={{ border: '2px solid black', backgroundColor: 'lightgray', padding: '5px 10px', cursor: 'pointer' }}>Logout</button> */}
+            <Link to="/profile" style={{ textDecoration: 'none' }}><button style={{ border: '2px solid black', backgroundColor: 'lightgray', padding: '5px 10px', cursor: 'pointer'  }}>Profile</button></Link>
           </div>
         
           <Link to="/login"><button style={{ border: '2px solid black', backgroundColor: 'lightgray', padding: '5px 10px', cursor: 'pointer' }}>Login</button></Link>
@@ -40,7 +41,7 @@ function Home() {
       </div>
 
       {/* Main content */}
-      <h2>Welcome to the Homepage</h2>
+      
       {/* Add more content here */}
     </div>
   );

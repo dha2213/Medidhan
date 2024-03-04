@@ -13,8 +13,8 @@ app.use(express.json())
 
 const connectDb = async ()=>{
 // Connect to MongoDB
-const URL = 'mongodb+srv://dhananjayyadav221303:dhananjay@cluster0.ypu7yj1.mongodb.net/medidhan?retryWrites=true&w=majority&appName=Cluster0'
-//const URL = 'mongodb://127.0.0.1:27017/medidhan?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.2';
+// const URL = 'mongodb+srv://dhananjayyadav221303:dhananjay@cluster0.ypu7yj1.mongodb.net/medidhan?retryWrites=true&w=majority&appName=Cluster0'
+const URL = 'mongodb://127.0.0.1:27017/medidhan?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.2';
    
 try {
     await mongoose.connect(URL, { useNewUrlParser: true })

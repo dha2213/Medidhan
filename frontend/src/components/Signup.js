@@ -45,20 +45,24 @@ function Signup() {
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
   <h2 style={{ marginBottom: '20px' }}>Please enter your email for OTP verification</h2>
   {error && <p style={{ color: 'red' }}>{error}</p>}
-  <form onSubmit={handleSubmit} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-    <input
-      type="email"
-      placeholder="Email"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      required
-      style={{ padding: '10px', marginRight: '10px', borderRadius: '5px', border: '1px solid #ccc', width: '250px' }}
-    />
-    <button type="submit" style={{ padding: '10px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
-      Submit
-    </button>
-  </form>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <form onSubmit={handleSubmit} style={{ width: '250px' }}>
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+        style={{ padding: '10px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc', width: '100%' }}
+      />
+      <button type="submit" style={{ padding: '10px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer', width: '100%' }}>
+        Submit
+      </button>
+    </form>
+  </div>
 </div>
+
+  
 
     // <div>
     //   <h2>Please enter your email for otp varification</h2>

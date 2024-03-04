@@ -4,7 +4,7 @@ const multer = require("multer");
 const path = require('path');
 const { User } = require('../models/User');
 const { log } = require('console');
-
+const bcrypt = require('bcrypt');
 // Set up multer for file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -39,6 +39,7 @@ router.get('/', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
 router.post("/update-profile", upload.single('profilePhoto'), async (req, res) => {
   try {
     const { email, fullName, address, age, dateOfBirth, password } = req.body;
@@ -58,7 +59,9 @@ router.post("/update-profile", upload.single('profilePhoto'), async (req, res) =
     user.profile.dateOfBirth = dateOfBirth;
     user.profile.profilePhoto = profilePhotoPath; // Store the image path
 
-    user.password = password; // Note: This should be hashed before saving (for security)
+    // Encrypt the password before saving
+    const hashedPassword = await bcrypt.hash(password, 10); // 10 is the saltRounds
+    user.password = hashedPassword;
 
     // Save the updated user
     await user.save();
@@ -69,5 +72,4 @@ router.post("/update-profile", upload.single('profilePhoto'), async (req, res) =
     res.status(500).send("Server Error");
   }
 });
-
 module.exports = router;

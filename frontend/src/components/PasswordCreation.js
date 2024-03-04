@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './Password.css'
 
 function PasswordCreation() {
   const [password, setPassword] = useState('');
@@ -37,15 +38,20 @@ function PasswordCreation() {
   };
 
   return (
-    <div>
-      <h2>Password Creation</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <>
+      <h1 >Create your Password</h1>
+      <div class="container">
+  
+  <form onSubmit={handleSubmit}>
+    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+    <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+    {error && <p>{error}</p>}
+    <button type="submit">Submit</button>
+  </form>
+</div>
+    </>
+   
+
   );
 }
 

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Profile from "./Profile";
+import { useNavigate } from "react-router-dom";
 // import { navigate } from "gatsby";
 
 
 
 const UpdateProfile = () => {
   const [image,setImage]= useState();
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
     address: "",
@@ -51,7 +53,7 @@ const UpdateProfile = () => {
       const data = await response.json();
       console.log(data);
       localStorage.setItem("email", email);
-      // navigate("/OTPVerification");
+      navigate("/profile");
     } catch (error) {
       console.error("Error updating profile:", error);
     }
@@ -65,24 +67,24 @@ const UpdateProfile = () => {
   }
 
   return (
-    <body className="bg-cream text-charcoal min-h-screen font-sans leading-normal overflow-x-hidden lg:overflow-auto">
+    <body className="bg-cream text-charcoal min-h-screen font-sans leading-normal overflow-x-hidden lg:overflow-auto" style={{backgroundColor:'#ecf2f8'}}>
      
     
 
        
-      <main className="flex-1 md:p-0 lg:pt-8 lg:px-8 md:ml-24 flex flex-col" style={{ justifyContent: 'center' , backgroundColor:'red'}}>
-      <section className="bg-cream-lighter p-4 shadow" style={{ justifyContent: 'center' , backgroundColor:'blue'}}>
+      <main className="flex-1 md:p-0 lg:pt-8 lg:px-8 md:ml-24 flex flex-col" style={{ justifyContent: 'center'  }}>
+      <section className="bg-cream-lighter p-4 shadow" style={{ justifyContent: 'center'  }}>
 
           <div className="md:flex">
             <h2 className="md:w-1/3 uppercase tracking-wide text-sm sm:text-lg mb-6">
-              Your Profile
+              Your Profile  
             </h2>
           
           </div>
-          <form onSubmit={handleSubmit} className="profileContainer" style={{ alignItems:'center', justifyContent:'center', backgroundColor:'green',width:'50%'}}>
+          <form onSubmit={handleSubmit} className="profileContainer" style={{ alignItems:'center', justifyContent:'center',width:'93%',backgroundColor:"white"}}>
             <div className="md:flex mb-8">
                
-              <div className="md:flex-1 mt-2 mb:mt-0 md:px-3">
+              <div className="md:flex-1 mt-2 mb:mt-0 md:px-3" >
                 <div className="mb-4">
                   <label className="block uppercase tracking-wide text-xs font-bold">
                     Full Name
@@ -94,6 +96,7 @@ const UpdateProfile = () => {
                     placeholder="John Doe"
                     onChange={handleChange}
                     value={formData.fullName}
+                    style={{backgroundColor:'#F5F5F5'}}
                   />
                 </div>
                 <div className="mb-4">
@@ -107,6 +110,7 @@ const UpdateProfile = () => {
                     placeholder="123 Main St"
                     onChange={handleChange}
                     value={formData.address}
+                    style={{backgroundColor:'#F5F5F5'}}
                   />
                 </div>
                 <div className="mb-4">
@@ -120,6 +124,7 @@ const UpdateProfile = () => {
                     placeholder="30"
                     onChange={handleChange}
                     value={formData.age}
+                    style={{backgroundColor:'#F5F5F5'}}
                   />
                 </div>
                 <div className="mb-4">
@@ -132,6 +137,7 @@ const UpdateProfile = () => {
                     name="dateOfBirth"
                     onChange={handleChange}
                     value={formData.dateOfBirth}
+                    style={{backgroundColor:'#F5F5F5'}}
                   />
                 </div>
                 <div className="mb-4">
@@ -160,6 +166,7 @@ const UpdateProfile = () => {
                     placeholder="Enter Password"
                     onChange={handleChange}
                     value={formData.password}
+                    style={{backgroundColor:'#F5F5F5'}}
                   />
                 </div>
                 <div className="mb-4">
@@ -173,6 +180,7 @@ const UpdateProfile = () => {
                     placeholder="Re - Enter Password"
                     onChange={handleChange}
                     value={formData.reEnterPassword}
+                    style={{backgroundColor:''}}
                   />
                 </div>
               </div>
